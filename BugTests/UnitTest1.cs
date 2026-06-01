@@ -181,7 +181,6 @@ namespace BugTests
         public void Test21_Invalid_New_StartFix()
         {
             var b = new Bug();
-            b.machine.Fire(Trigger.ToResolution);
             Assert.ThrowsException<InvalidOperationException>(() => b.machine.Fire(Trigger.VerifySuccess));
         }
 
