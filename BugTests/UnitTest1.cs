@@ -144,14 +144,14 @@ namespace BugTests
         {
             var b = new Bug();
             b.machine.Fire(Trigger.Reject);
-            Assert.ThrowsException<Exception>(() => b.machine.Fire(Trigger.Reject));
+            Assert.ThrowsException<InvalidOperationException>(() => b.machine.Fire(Trigger.Reject));
         }
 
         [TestMethod]
         public void Test17_Invalid_Analysis_Success()
         {
             var b = new Bug();
-            Assert.ThrowsException<Exception>(() => b.machine.Fire(Trigger.VerifySuccess));
+            Assert.ThrowsException<InvalidOperationException>(() => b.machine.Fire(Trigger.VerifySuccess));
         }
 
         [TestMethod]
@@ -159,14 +159,14 @@ namespace BugTests
         {
             var b = new Bug();
             b.machine.Fire(Trigger.ToResolution);
-            Assert.ThrowsException<Exception>(() => b.machine.Fire(Trigger.ConfirmNotRepro));
+            Assert.ThrowsException<InvalidOperationException>(() => b.machine.Fire(Trigger.ConfirmNotRepro));
         }
 
         [TestMethod]
         public void Test19_Invalid_Analysis_CantRepro()
         {
             var b = new Bug();
-            Assert.ThrowsException<Exception>(() => b.machine.Fire(Trigger.CannotReproduce));
+            Assert.ThrowsException<InvalidOperationException>(() => b.machine.Fire(Trigger.CannotReproduce));
         }
 
         [TestMethod]
@@ -174,7 +174,7 @@ namespace BugTests
         {
             var b = new Bug();
             b.machine.Fire(Trigger.Reject);
-            Assert.ThrowsException<Exception>(() => b.machine.Fire(Trigger.Reopen));
+            Assert.ThrowsException<InvalidOperationException>(() => b.machine.Fire(Trigger.Reopen));
         }
 
         [TestMethod]
@@ -182,7 +182,7 @@ namespace BugTests
         {
             var b = new Bug();
             b.machine.Fire(Trigger.ToResolution);
-            Assert.ThrowsException<Exception>(() => b.machine.Fire(Trigger.VerifySuccess));
+            Assert.ThrowsException<InvalidOperationException>(() => b.machine.Fire(Trigger.VerifySuccess));
         }
 
         [TestMethod]
@@ -191,7 +191,7 @@ namespace BugTests
             var b = new Bug();
             b.machine.Fire(Trigger.ToResolution);
             b.machine.Fire(Trigger.VerifySuccess);
-            Assert.ThrowsException<Exception>(() => b.machine.Fire(Trigger.VerifySuccess));
+            Assert.ThrowsException<InvalidOperationException>(() => b.machine.Fire(Trigger.VerifySuccess));
         }
 
         [TestMethod]
@@ -200,7 +200,7 @@ namespace BugTests
             var b = new Bug();
             b.machine.Fire(Trigger.ToResolution);
             b.machine.Fire(Trigger.CannotReproduce);
-            Assert.ThrowsException<Exception>(() => b.machine.Fire(Trigger.ToResolution));
+            Assert.ThrowsException<InvalidOperationException>(() => b.machine.Fire(Trigger.ToResolution));
         }
 
         [TestMethod]
@@ -208,7 +208,7 @@ namespace BugTests
         {
             var b = new Bug();
             b.machine.Fire(Trigger.AskInfo);
-            Assert.ThrowsException<Exception>(() => b.machine.Fire(Trigger.Reject));
+            Assert.ThrowsException<InvalidOperationException>(() => b.machine.Fire(Trigger.Reject));
         }
     }
 }
